@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?scenebuilder-background-color 0x6ecbffff?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uos.lscholz.gedenkstaettendb.view.StartWindowController">
+  <children>
+    <BorderPane layoutY="0.0" prefHeight="400.0" prefWidth="600.0" snapToPixel="true" AnchorPane.leftAnchor="0.0">
+      <center>
+        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+          <children>
+            <Button blendMode="MULTIPLY" mnemonicParsing="false" prefHeight="51.0" prefWidth="107.0" text="Daten neu eintragen" textAlignment="CENTER" wrapText="true" VBox.vgrow="ALWAYS">
+              <VBox.margin>
+                <Insets fx:id="x1" />
+              </VBox.margin>
+            </Button>
+            <Separator orientation="VERTICAL" prefHeight="16.0" prefWidth="16.0" />
+            <Button blendMode="MULTIPLY" mnemonicParsing="false" prefHeight="51.0" prefWidth="107.0" text="Bestehende Daten ändern" textAlignment="CENTER" wrapText="true" VBox.margin="$x1" VBox.vgrow="ALWAYS" />
+            <Separator orientation="VERTICAL" prefHeight="16.0" prefWidth="16.0" />
+            <Button blendMode="MULTIPLY" mnemonicParsing="false" prefHeight="51.0" prefWidth="107.0" text="Abfrage an die Datenbank" textAlignment="CENTER" wrapText="true" VBox.vgrow="ALWAYS" />
+          </children>
+        </VBox>
+      </center>
+      <padding>
+        <Insets fx:id="x2" />
+      </padding>
+    </BorderPane>
+  </children>
+</AnchorPane>
