@@ -8,6 +8,10 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 
+/**
+ * Group of Labels and data inserts to specify the name and structure of a Datafield (to be used when
+ * the user needs to create a new source
+ */
 public class DatafieldGroupPane extends GridPane{
 
     private Label datafieldLabel;
@@ -21,6 +25,10 @@ public class DatafieldGroupPane extends GridPane{
         this("Datenfeld");
     }
 
+    /**
+     *
+     * @param name name of the Datafield
+     */
     public DatafieldGroupPane(String name){
         ObservableList<String> kindOfDataChoices =
                 FXCollections.observableArrayList("Text","Datum","natürliche Zahl","Fließkommazahl","Wahrheitswert");
