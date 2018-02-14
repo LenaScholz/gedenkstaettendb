@@ -1,13 +1,22 @@
 .root{
     -fx-background-color: lightblue;
-    -fx-alignment: center;
+    /*-fx-alignment: center;*/
     -fx-padding: 30;
     -fx-spacing: 20;
-    -fx-font-size: 20;
+    -fx-font-size: 200%;
     -fx-font-family: Carlito;
 }
 #deleteButton{
     -fx-alignment: center ;
-    -fx-background-color: red;
+    -fx-background-color: darkred;
     -fx-text-fill: white;
+}
+#backButton{
+    -fx-alignment: top_left;
+    -fx-background-color: darkred;
+    -fx-text-fill: white;
+}
+#forwardButton{
+    -fx-alignment: baseline_right;
+    -fx-background-color: lightgreen;
 }
