@@ -25,7 +25,7 @@ public class MainView extends Application {
         Scene scene = new Scene(root);
         scene.getStylesheets().add("/view/Stylesheet.css");
 
-        primaryStage.setTitle("Auswahl");
+        primaryStage.setTitle("Personendatenbank");
         primaryStage.setScene(scene);
         primaryStage.show();
 

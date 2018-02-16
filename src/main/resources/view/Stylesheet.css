@@ -17,6 +17,12 @@
     -fx-text-fill: white;
 }
 #forwardButton{
-    -fx-alignment: baseline_right;
+    -fx-alignment: BASELINE_RIGHT;
+    -fx-background-color: lightgreen;
+}
+#separator{
+/*figure out how to paint it black*/
+}
+#addButton{
     -fx-background-color: lightgreen;
 }
