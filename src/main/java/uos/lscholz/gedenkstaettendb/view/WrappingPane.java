@@ -2,6 +2,7 @@ package uos.lscholz.gedenkstaettendb.view;
 
 import javafx.geometry.Pos;
 import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
@@ -20,8 +21,8 @@ public class WrappingPane extends BorderPane{
         this.setCenter(centerStackPane);
     }
 
-    public void addCenterLayer(Node node){
-        this.centerStackPane.getChildren().add(node);
+    public void addCenterLayer(Parent parent){
+        this.centerStackPane.getChildren().add(parent);
 
     }
 }

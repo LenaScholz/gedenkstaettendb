@@ -3,6 +3,7 @@ package uos.lscholz.gedenkstaettendb.view;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 
+import java.util.LinkedList;
 import java.util.List;
 
 public class CreateNewSourcePane extends GridPane {
@@ -19,8 +20,7 @@ public class CreateNewSourcePane extends GridPane {
 
 
     public CreateNewSourcePane(){
-        this.setHgap(20);
-        this.setVgap(20);
+        this.datafields = new LinkedList<DatafieldGroupPane>();
         this.nameOfSourceLabel = new Label("Name der Quelle");
         this.nameOfSource = new TextField();
 
@@ -35,16 +35,30 @@ public class CreateNewSourcePane extends GridPane {
         this.add(nameOfSource,1,2,2,1);
 
         scrollPane.setContent(datafieldsGridPane);
+        scrollPane.prefHeightProperty().bind(this.heightProperty());
+        scrollPane.prefWidthProperty().bind(this.widthProperty());
+
+
         this.add(scrollPane,1,3,2,1);
         //TODO: dynamic generation and storage in datafields-list
-        datafieldsGridPane.add(new DatafieldGroupPane("Datenfeld 1"),1,3,2,1);
-        datafieldsGridPane.add(new DatafieldGroupPane("Datenfeld 2"),1,4,2,1);
-        datafieldsGridPane.add(new DatafieldGroupPane("Datenfeld 3"),1,5,2,1);
-        datafieldsGridPane.add(new DatafieldGroupPane("Datenfeld 4"),1,6,2,1);
-        datafieldsGridPane.add(new DatafieldGroupPane("Datenfeld 5"),1,7,2,1);
+        for(int i=0;i<5;i++) {
+            this.addDatafieldGroupPane();
+        }
 
         this.add(addDatafieldButton,1,6);
         this.add(addDatafield,2,6);
+
+    }
+
+    /**
+     * add one more DatafieldGroup to this view
+     */
+    public void addDatafieldGroupPane (){
+        DatafieldGroupPane newDGP = new DatafieldGroupPane("Datenfeld "+(datafields.size()+1));
+        datafields.add(newDGP);
+        this.datafieldsGridPane.add(newDGP,1,datafields.size(),2,1);
+        /**newDGP.prefWidthProperty().bind(this.datafieldsGridPane.widthProperty());
+        newDGP.prefHeightProperty().bind(this.datafieldsGridPane.heightProperty());**/
 
     }
 }
