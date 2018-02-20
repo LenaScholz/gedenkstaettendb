@@ -1,6 +1,6 @@
 .root{
     -fx-background-color: lightblue;
-    /*-fx-alignment: center;*/
+    -fx-alignment: center;
     -fx-padding: 30;
     -fx-spacing: 20;
     -fx-font-size: 200%;

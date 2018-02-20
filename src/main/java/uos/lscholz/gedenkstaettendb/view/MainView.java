@@ -20,8 +20,10 @@ public class MainView extends Application {
     public void start(Stage primaryStage) throws IOException {
 
         WrappingPane root = new WrappingPane();
-        CreateNewSourcePane createSourcePane = new CreateNewSourcePane();
-        root.addCenterLayer(createSourcePane);
+        /**CreateNewSourcePane createSourcePane = new CreateNewSourcePane();
+        root.addCenterLayer(createSourcePane);**/
+        SelectDataEntryActionPane selectDataEntryActionPane = new SelectDataEntryActionPane();
+        root.addCenterLayer(selectDataEntryActionPane);
         Scene scene = new Scene(root);
         scene.getStylesheets().add("/view/Stylesheet.css");
 
