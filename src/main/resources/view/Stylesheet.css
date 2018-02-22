@@ -18,9 +18,9 @@
     -fx-background-color: darkred;
     -fx-text-fill: white;
 }
-#forwardButton{
-    -fx-alignment: BASELINE_RIGHT;
-    -fx-background-color: lightgreen;
+#createButton{
+    -fx-background-color: darkgreen;
+    -fx-text-fill: white;
 }
 #separator{
 /*figure out how to paint it black*/
