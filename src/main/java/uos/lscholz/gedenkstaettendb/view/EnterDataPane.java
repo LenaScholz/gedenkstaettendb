@@ -1,4 +1,10 @@
 package uos.lscholz.gedenkstaettendb.view;
 
-public class EnterDataPane {
+import javafx.scene.layout.GridPane;
+
+public class EnterDataPane extends GridPane {
+
+    public EnterDataPane(){
+
+    }
 }
