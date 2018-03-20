@@ -21,7 +21,7 @@ public class DatafieldGroupPane extends GridPane{
     private ComboBox kindOfData;
     private Label identifierLabel;
     private TextField identifier;
-    private Button datafieldDelete;
+    private DeleteButton datafieldDelete;
     private Separator separator;
 
     public DatafieldGroupPane(){
@@ -43,8 +43,7 @@ public class DatafieldGroupPane extends GridPane{
         this.kindOfData = new ComboBox(kindOfDataChoices);
         this.identifierLabel = new Label("Bezeichner");
         this.identifier = new TextField();
-        this.datafieldDelete = new Button("X");
-        this.datafieldDelete.setId("deleteButton");
+        this.datafieldDelete = new DeleteButton();
         this.separator = new Separator();
         this.separator.setId("separator");
 

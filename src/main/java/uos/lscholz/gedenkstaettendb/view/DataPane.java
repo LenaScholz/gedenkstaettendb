@@ -12,25 +12,23 @@ import java.util.List;
 /**
  * TODO: possibly turn this into separate classes in the future
  *
- * TODO: create separate classes for delete and add button
  */
 public class DataPane extends GridPane{
 
     private String type;
     private Label label;
     private List<Node> contentNodes;
-    private Button addData;
-    private List<Button> dataDeletes;
+    private AddButton addData;
+    private List<DeleteButton> dataDeletes;
     private Separator separator;
 
 
     public DataPane(String label, String type, String [] contents){
         this.contentNodes = new LinkedList<Node>();
-        this.dataDeletes = new LinkedList<Button>();
+        this.dataDeletes = new LinkedList<DeleteButton>();
         this.type = type;
         this.label = new Label(label);
-        this.addData = new Button("+");
-        this.addData.setId("addButton");
+        this.addData = new AddButton();
         this.add(addData,1,1);
         this.add(this.label,2,1);
         handleContent(type,contents);
@@ -41,8 +39,7 @@ public class DataPane extends GridPane{
     private void handleContent(String type, String [] contents){
 
         for(int i = 0; i< contents.length; i++){
-            this.dataDeletes.add(new Button("X"));
-            this.dataDeletes.get(i).setId("deleteButton");
+            this.dataDeletes.add(new DeleteButton());
             Node node;
             switch (type){
                 case "TEXT": node = handleText(contents[i]);break;

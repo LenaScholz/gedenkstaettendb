@@ -15,7 +15,7 @@ public class CreateNewSourcePane extends GridPane {
     private Label sourceDescriptionLabel;
     private TextArea sourceDescription;
     private Label datafieldsLabel;
-    private Button addDatafieldButton;
+    private AddButton addDatafieldButton;
 
     private Button createSourceButton;
 
@@ -42,8 +42,7 @@ public class CreateNewSourcePane extends GridPane {
         this.scrollPane = new ScrollPane();
         this.datafieldsGridPane = new GridPane();
 
-        this.addDatafieldButton = new Button("+ | Weiteres Datenfeld hinzufügen");
-        this.addDatafieldButton.setId("addButton");
+        this.addDatafieldButton = new AddButton("Weiteres Datenfeld hinzufügen");
 
         this.add(nameOfSourceLabel,1,1,2,1);
         this.add(nameOfSource,1,2,2,1);
