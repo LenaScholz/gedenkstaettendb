@@ -9,7 +9,9 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Screen;
 
-
+/**
+ * Pane wrapping the actual content to be displayed, showing a button to go back and setting some parameters
+ */
 public class WrappingPane extends BorderPane{
 
     private Button backButton;

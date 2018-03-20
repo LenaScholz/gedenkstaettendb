@@ -6,6 +6,9 @@ import javafx.scene.layout.GridPane;
 import java.util.LinkedList;
 import java.util.List;
 
+/**
+ * Interface for creating a new source
+ */
 public class CreateNewSourcePane extends GridPane {
 
     private Label nameOfSourceLabel;
@@ -25,7 +28,10 @@ public class CreateNewSourcePane extends GridPane {
     private List<DatafieldGroupPane> datafields;
 
 
-
+    /**
+     * CreateNewSourcePane requesting name, kind and description of a new source to be created as well as
+     * a variable amount of datafields with their respective properties for that new source
+     */
     public CreateNewSourcePane(){
         this.datafields = new LinkedList<DatafieldGroupPane>();
 

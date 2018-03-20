@@ -4,6 +4,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.layout.GridPane;
 
+/**
+ * Interface to choose data entry action on running DB
+ */
 public class SelectDataEntryActionPane extends GridPane{
 
     private Button enterDataButton;

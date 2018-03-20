@@ -11,6 +11,8 @@ import java.util.Map;
 
 /**
  * TODO: should this itself be the scrollpane?
+ *
+ * Interface requesting the data for a (future) DB-entry
  */
 public class EnterDataPane extends GridPane {
 
@@ -20,6 +22,7 @@ public class EnterDataPane extends GridPane {
 
     /**
      * TODO: adapt to actual source once DB is set up
+     *
      */
     public EnterDataPane(){
         this.datapanes = new LinkedList<DataPane>();
