@@ -17,12 +17,12 @@ public class SampleSource {
         this.datatypes = new LinkedHashMap<String, String>();
         this.contents = new HashMap<String, String[]>();
 
-        datatypes.put("Name","String");
-        datatypes.put("Vorname","String");
-        datatypes.put("Geburt","Date");
-        datatypes.put("Häftlingsnummer","Integer");
-        datatypes.put("Boolean","Boolean");
-        datatypes.put("Float","Float");
+        datatypes.put("Name","TEXT");
+        datatypes.put("Vorname","TEXT");
+        datatypes.put("Geburt","DATE");
+        datatypes.put("Häftlingsnummer","INT");
+        datatypes.put("Boolean","BOOLEAN");
+        datatypes.put("Float","FLOAT");
 
         contents.put("Name", new String[]{"Beispiel", "Beiszpiel"});
         contents.put("Vorname",new String[]{"David","Dafid","Davit"});
