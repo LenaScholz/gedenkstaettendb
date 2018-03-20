@@ -31,9 +31,14 @@ public class DataPane extends GridPane{
         this.addData = new AddButton();
         this.add(addData,1,1);
         this.add(this.label,2,1);
-        handleContent(type,contents);
+        if(contents != null){
+            handleContent(type,contents);
+        } else {
+            handleEmptyContent(type);
+        }
+
         this.separator = new Separator();
-        this.add(separator,1,(3+this.contentNodes.size()),2,1);
+        this.add(separator,1,(2+this.contentNodes.size()),2,1);
     }
 
     private void handleContent(String type, String [] contents){
@@ -54,6 +59,23 @@ public class DataPane extends GridPane{
             this.add(dataDeletes.get(i),1,(2+i));
             this.add(contentNodes.get(i),2,(2+i));
         }
+    }
+
+    private void handleEmptyContent(String type){
+        this.dataDeletes.add(new DeleteButton());
+        Node node;
+        switch (type){
+            case "TEXT": node = handleText("");break;
+            case "DATE":node = handleDate("1900-01-01");break;
+            case "FLOAT": case "DOUBLE": case "DECIMAL": node = handleFloat("");break;
+            case "INTEGER": case "INT": case "BIGINT":node = handleInteger("");break;
+            case "BOOLEAN": case "BOOL":node = handleBoolean("false");break;
+            default:throw new RuntimeException("Typ wird nicht unterstützt");
+        }
+        this.contentNodes.add(node);
+
+        this.add(dataDeletes.get(0),1,2);
+        this.add(contentNodes.get(0),2,2);
     }
 
     private Node handleText(String content){
