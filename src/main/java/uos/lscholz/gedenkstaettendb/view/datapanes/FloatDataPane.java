@@ -1,5 +1,8 @@
 package uos.lscholz.gedenkstaettendb.view.datapanes;
 
+import javafx.scene.Node;
+import javafx.scene.control.TextField;
+
 public class FloatDataPane extends DataPane{
     /**
      * @param label    Name of the datafield
@@ -8,5 +11,15 @@ public class FloatDataPane extends DataPane{
      */
     public FloatDataPane(String label, String type, String[] contents) {
         super(label, type, contents);
+    }
+
+    @Override
+    protected Node newContentNode(String content) {
+        return new TextField(content);
+    }
+
+    @Override
+    protected Node newContentNode() {
+        return this.newContentNode("");
     }
 }
