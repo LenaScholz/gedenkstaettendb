@@ -1,10 +1,11 @@
 package uos.lscholz.gedenkstaettendb.view;
 
 import javafx.scene.control.ScrollPane;
+import javafx.scene.control.Separator;
 import javafx.scene.layout.GridPane;
 import uos.lscholz.gedenkstaettendb.model.SampleSource;
+import uos.lscholz.gedenkstaettendb.view.datapanes.DataPane;
 
-import java.time.format.DateTimeParseException;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
@@ -34,6 +35,7 @@ public class EnterDataPane extends GridPane {
             DataPane dataPane = new DataPane(entry.getKey(),entry.getValue(),source.contents.get(entry.getKey()));
             this.datapanes.add(dataPane);
             this.gridPane.add(dataPane,1,i++);
+            this.gridPane.add(new Separator(),1,i++);
         }
         this.scrollPane.setContent(this.gridPane);
         this.scrollPane.prefHeightProperty().bind(this.heightProperty());

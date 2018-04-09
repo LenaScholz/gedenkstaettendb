@@ -1,8 +1,10 @@
-package uos.lscholz.gedenkstaettendb.view;
+package uos.lscholz.gedenkstaettendb.view.datapanes;
 
 import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
+import uos.lscholz.gedenkstaettendb.view.AddButton;
+import uos.lscholz.gedenkstaettendb.view.DeleteButton;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeParseException;
@@ -39,14 +41,15 @@ public class DataPane extends GridPane{
         this.addData = new AddButton();
         this.add(addData,1,1);
         this.add(this.label,2,1);
+
+
+
+
         if(contents != null){
             handleContent(type,contents);
         } else {
             handleEmptyContent(type);
         }
-
-        this.separator = new Separator();
-        this.add(separator,1,(2+this.contentNodes.size()),2,1);
     }
 
     /**
