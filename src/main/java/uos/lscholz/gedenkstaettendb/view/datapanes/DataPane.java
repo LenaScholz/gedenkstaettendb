@@ -24,8 +24,7 @@ public abstract class DataPane extends GridPane{
     private List<Node> contentNodes;
     private AddButton addData;
     private List<DeleteButton> dataDeletes;
-    private Separator separator;
-
+    private List<TextField> pagination;
 
     /**
      *
@@ -36,6 +35,7 @@ public abstract class DataPane extends GridPane{
     public DataPane(String label, String type, String [] contents){
         this.contentNodes = new LinkedList<Node>();
         this.dataDeletes = new LinkedList<DeleteButton>();
+        this.pagination = new LinkedList<TextField>();
         this.type = type;
         this.label = new Label(label);
         this.addData = new AddButton();
@@ -45,17 +45,23 @@ public abstract class DataPane extends GridPane{
         if(contents == null){
             this.dataDeletes.add(new DeleteButton());
             this.contentNodes.add(newContentNode());
+            this.pagination.add(new TextField(""));
             this.add(dataDeletes.get(0), 1, 2);
             this.add(contentNodes.get(0), 2, 2);
+            this.add(new Label("Paginierung: "),3,2);
+            this.add(this.pagination.get(0),4,2);
 
         } else {
             for (int i = 0; i < contents.length; i++) {
                 this.dataDeletes.add(new DeleteButton());
 
                 this.contentNodes.add(this.newContentNode(contents[i]));
+                this.pagination.add(new TextField(""));
 
                 this.add(dataDeletes.get(i), 1, (2 + i));
                 this.add(contentNodes.get(i), 2, (2 + i));
+                this.add(new Label("Paginierung: "),3,(2+i));
+                this.add(this.pagination.get(i),4,(2+i));
             }
         }
     }
