@@ -28,6 +28,10 @@
 #addButton{
     -fx-background-color: lightgreen;
 }
+
+.hyperlink{
+    -fx-font-size: 60%;
+}
 .grid-pane{
     -fx-hgap: 20;
     -fx-vgap: 20;
