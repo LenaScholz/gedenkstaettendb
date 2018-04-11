@@ -46,6 +46,7 @@ public abstract class DataPane extends GridPane{
             this.dataDeletes.add(new DeleteButton());
             this.contentNodes.add(newContentNode());
             this.pagination.add(new TextField(""));
+            this.pagination.get(0).setDisable(true);
             this.add(dataDeletes.get(0), 1, 2);
             this.add(contentNodes.get(0), 2, 2);
             this.add(new Label("Paginierung: "),3,2);
@@ -57,6 +58,7 @@ public abstract class DataPane extends GridPane{
 
                 this.contentNodes.add(this.newContentNode(contents[i]));
                 this.pagination.add(new TextField(""));
+                this.pagination.get(i).setDisable(true);
 
                 this.add(dataDeletes.get(i), 1, (2 + i));
                 this.add(contentNodes.get(i), 2, (2 + i));

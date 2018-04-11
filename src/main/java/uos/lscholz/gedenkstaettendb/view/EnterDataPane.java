@@ -45,7 +45,9 @@ public class EnterDataPane extends GridPane {
             DataPane dataPane = DataPaneFactory.createDataPane(entry.getKey(),entry.getValue(),source.contents.get(entry.getKey()));
             this.datapanes.add(dataPane);
             this.gridPane.add(dataPane,1,i++);
-            this.gridPane.add(new Separator(),1,i++);
+            Separator separator = new Separator();
+            separator.setId("separator");
+            this.gridPane.add(separator,1,i++);
         }
         this.scrollPane.setContent(this.gridPane);
         this.scrollPane.prefHeightProperty().bind(this.heightProperty());
