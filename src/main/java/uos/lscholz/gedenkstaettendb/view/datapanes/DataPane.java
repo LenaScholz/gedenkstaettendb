@@ -1,13 +1,10 @@
 package uos.lscholz.gedenkstaettendb.view.datapanes;
 
-import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 import uos.lscholz.gedenkstaettendb.view.AddButton;
 import uos.lscholz.gedenkstaettendb.view.DeleteButton;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeParseException;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -21,7 +18,7 @@ public abstract class DataPane extends GridPane{
 
     private String type;
     private Label label;
-    private List<Node> contentNodes;
+    private List<Control> contentControls;
     private AddButton addData;
     private List<DeleteButton> dataDeletes;
     private List<TextField> pagination;
@@ -33,7 +30,7 @@ public abstract class DataPane extends GridPane{
      * @param contents Array of the data already stored for that datafield
      */
     public DataPane(String label, String type, String [] contents){
-        this.contentNodes = new LinkedList<Node>();
+        this.contentControls = new LinkedList<Control>();
         this.dataDeletes = new LinkedList<DeleteButton>();
         this.pagination = new LinkedList<TextField>();
         this.type = type;
@@ -44,34 +41,38 @@ public abstract class DataPane extends GridPane{
 
         if(contents == null){
             this.dataDeletes.add(new DeleteButton());
-            this.contentNodes.add(newContentNode());
-            this.pagination.add(new TextField(""));
-            this.pagination.get(0).setDisable(true);
-            this.add(dataDeletes.get(0), 1, 2);
-            this.add(contentNodes.get(0), 2, 2);
-            this.add(new Label("Paginierung: "),3,2);
-            this.add(this.pagination.get(0),4,2);
+            this.contentControls.add(newContentControl());
+            //TODO: do not set size explicitely
+            this.contentControls.get(0).setMinWidth(400);
+            this.layoutContents(0);
 
         } else {
             for (int i = 0; i < contents.length; i++) {
                 this.dataDeletes.add(new DeleteButton());
-
-                this.contentNodes.add(this.newContentNode(contents[i]));
-                this.pagination.add(new TextField(""));
-                this.pagination.get(i).setDisable(true);
-
-                this.add(dataDeletes.get(i), 1, (2 + i));
-                this.add(contentNodes.get(i), 2, (2 + i));
-                this.add(new Label("Paginierung: "),3,(2+i));
-                this.add(this.pagination.get(i),4,(2+i));
+                this.contentControls.add(this.newContentControl(contents[i]));
+                //TODO: do not set size explicitely
+                this.contentControls.get(i).setMinWidth(400);
+                this.layoutContents(i);
             }
         }
     }
 
+    public String getType(){
+        return this.type;
+    }
 
-    protected abstract Node newContentNode(String content);
+    protected abstract Control newContentControl(String content);
 
-    protected abstract Node newContentNode();
+    protected abstract Control newContentControl();
 
 
+    private void layoutContents(int i){
+        this.pagination.add(new TextField(""));
+        this.pagination.get(i).setDisable(true);
+
+        this.add(dataDeletes.get(i), 1, (2 + i));
+        this.add(contentControls.get(i), 2, (2 + i));
+        this.add(new Label("Paginierung: "),3,(2+i));
+        this.add(this.pagination.get(i),4,(2+i));
+    }
 }

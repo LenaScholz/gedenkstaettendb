@@ -1,6 +1,6 @@
 package uos.lscholz.gedenkstaettendb.view.datapanes;
 
-import javafx.scene.Node;
+import javafx.scene.control.Control;
 import javafx.scene.control.DatePicker;
 
 import java.time.LocalDate;
@@ -17,7 +17,7 @@ public class DateDataPane extends DataPane {
     }
 
     @Override
-    protected Node newContentNode(String content) {
+    protected Control newContentControl(String content) {
         LocalDate date;
         try{
             date = LocalDate.parse(content);
@@ -28,7 +28,7 @@ public class DateDataPane extends DataPane {
     }
 
     @Override
-    protected Node newContentNode() {
-        return this.newContentNode("1900-01-01");
+    protected Control newContentControl() {
+        return this.newContentControl("1900-01-01");
     }
 }

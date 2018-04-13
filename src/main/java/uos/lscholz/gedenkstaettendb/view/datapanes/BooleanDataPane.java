@@ -1,7 +1,7 @@
 package uos.lscholz.gedenkstaettendb.view.datapanes;
 
-import javafx.scene.Node;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.Control;
 
 public class BooleanDataPane extends DataPane{
     /**
@@ -14,14 +14,14 @@ public class BooleanDataPane extends DataPane{
     }
 
     @Override
-    protected Node newContentNode(String content) {
+    protected Control newContentControl(String content) {
         CheckBox checkBox= new CheckBox();
         checkBox.setSelected(Boolean.parseBoolean(content));
         return checkBox;
     }
 
     @Override
-    protected Node newContentNode() {
-        return this.newContentNode("false");
+    protected Control newContentControl() {
+        return this.newContentControl("false");
     }
 }
