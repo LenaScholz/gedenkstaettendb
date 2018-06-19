@@ -1,4 +1,4 @@
-package uos.lscholz.gedenkstaettendb.view.datapanes;
+package uos.lscholz.gedenkstaettendb.view.dataentrypanes;
 
 public class DataPaneFactory {
 
