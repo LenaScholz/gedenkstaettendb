@@ -1,4 +1,4 @@
-package uos.lscholz.gedenkstaettendb.view.datapanes;
+package uos.lscholz.gedenkstaettendb.view.dataentrypanes;
 
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;

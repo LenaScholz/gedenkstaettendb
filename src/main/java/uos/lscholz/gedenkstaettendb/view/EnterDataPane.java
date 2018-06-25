@@ -6,7 +6,7 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.control.Separator;
 import javafx.scene.layout.GridPane;
 import uos.lscholz.gedenkstaettendb.model.SampleSource;
-import uos.lscholz.gedenkstaettendb.view.datapanes.*;
+import uos.lscholz.gedenkstaettendb.view.dataentrypanes.*;
 
 import java.util.LinkedList;
 import java.util.List;

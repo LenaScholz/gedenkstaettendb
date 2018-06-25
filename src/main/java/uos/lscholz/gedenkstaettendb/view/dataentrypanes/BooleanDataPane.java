@@ -1,25 +1,27 @@
-package uos.lscholz.gedenkstaettendb.view.datapanes;
+package uos.lscholz.gedenkstaettendb.view.dataentrypanes;
 
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.Control;
-import javafx.scene.control.TextField;
 
-public class TextDataPane extends DataPane {
+public class BooleanDataPane extends DataPane{
     /**
      * @param label    Name of the datafield
      * @param type     Type of the data stored in the datafield
      * @param contents Array of the data already stored for that datafield
      */
-    public TextDataPane(String label, String type, String[] contents) {
+    public BooleanDataPane(String label, String type, String[] contents) {
         super(label, type, contents);
     }
 
     @Override
     protected Control newContentControl(String content) {
-        return new TextField(content);
+        CheckBox checkBox= new CheckBox();
+        checkBox.setSelected(Boolean.parseBoolean(content));
+        return checkBox;
     }
 
     @Override
     protected Control newContentControl() {
-        return this.newContentControl("");
+        return this.newContentControl("false");
     }
 }
