@@ -9,7 +9,6 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
- * TODO: possibly turn this into separate classes in the future
  *
  * Group of Labels and data inserts representing a datafield
  * to be used when the user is inserting or editing the data of an entry in the DB
