@@ -9,7 +9,6 @@ public class DataPaneFactory {
      * @return
      */
     public static DataPane createDataPane(String label, String type, String [] contents) {
-        DataPane dataPane = null;
         switch (type) {
             case "TEXT":
                 return new TextDataPane(label, type, contents);
