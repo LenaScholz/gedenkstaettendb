@@ -15,5 +15,12 @@ public class DataQueryPane extends GridPane {
         //TODO: fill with categories from Database
         this.select = new ComboBox();
 
+        this.add(removeButton,1,1,1,2);
+        this.add(select,2,1);
+
+    }
+
+    public void refreshSection(){
+        //TODO add section
     }
 }
