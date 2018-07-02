@@ -16,9 +16,10 @@ public class BooleanQuerySection extends QuerySection {
             throw new RuntimeException("Too many arguments in contents");
         }
         this.checkBox = new CheckBox();
-        if(contents[0]!=null){
+        if(contents.length>0 && contents[0]!=null){
             this.checkBox.setSelected(Boolean.valueOf(contents[0]));
         }
+        this.add(this.checkBox,1,1);
     }
 
 }
