@@ -22,4 +22,9 @@ public class BooleanQuerySection extends QuerySection {
         this.add(this.checkBox,1,1);
     }
 
+    @Override
+    protected String getHelpInfo() {
+        return null;
+    }
+
 }

@@ -32,4 +32,9 @@ public class DateQuerySection extends QuerySection {
         this.add(firstDatePicker,1,1);
         this.add(secondDatePicker,2,1);
     }
+
+    @Override
+    protected String getHelpInfo() {
+        return null;
+    }
 }

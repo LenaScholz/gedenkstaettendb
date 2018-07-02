@@ -15,4 +15,6 @@ public abstract class QuerySection extends GridPane {
         this.contents = contents;
     }
 
+    protected abstract String getHelpInfo();
+
 }
