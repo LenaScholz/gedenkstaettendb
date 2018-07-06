@@ -2,21 +2,25 @@ package uos.lscholz.gedenkstaettendb.view.dataquerypanes;
 
 public class QuerySectionFactory {
 
-    public static QuerySection createQuerySection(String type){
+    public static QuerySection createQuerySection(String type) {
         switch (type) {
-            case "TEXT": break;
-            case "DATE": break;
+            case "TEXT":
+                return new TextQuerySection();
+            case "DATE":
+                return new DateQuerySection();
             case "FLOAT":
             case "DOUBLE":
-            case "DECIMAL": break;
+            case "DECIMAL":
+                return new FloatQuerySection();
             case "INTEGER":
             case "INT":
-            case "BIGINT": break;
+            case "BIGINT":
+                return new IntegerQuerySection();
             case "BOOLEAN":
-            case "BOOL": break;
+            case "BOOL":
+                return new BooleanQuerySection();
             default:
                 throw new RuntimeException("Typ wird nicht unterstützt");
         }
-        return null;
     }
 }
