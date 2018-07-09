@@ -24,8 +24,10 @@ public class MainView extends Application {
         root.addCenterLayer(createSourcePane);**/
         /**SelectDataEntryActionPane selectDataEntryActionPane = new SelectDataEntryActionPane();
         root.addCenterLayer(selectDataEntryActionPane);**/
-        EnterDataPane enterDataPane = new EnterDataPane();
-        root.addCenterLayer(enterDataPane);
+        /**EnterDataPane enterDataPane = new EnterDataPane();
+        root.addCenterLayer(enterDataPane);**/
+        QueryPane queryPane = new QueryPane();
+        root.addCenterLayer(queryPane);
         Scene scene = new Scene(root);
         scene.getStylesheets().add("/view/Stylesheet.css");
 

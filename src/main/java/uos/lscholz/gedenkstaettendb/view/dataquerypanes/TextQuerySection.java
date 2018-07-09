@@ -9,18 +9,21 @@ public class TextQuerySection extends QuerySection{
     private CheckBox fuzzySearch;
 
     public TextQuerySection(){
-
+        this(null);
     }
 
     public TextQuerySection(String ... contents){
+        super(contents);
         this.textField = new TextField();
         this.fuzzySearch = new CheckBox("Unscharfe Suche");
         //TODO: set according to contents?
         this.fuzzySearch.setSelected(false);
         String text = "";
-        for(String s:contents){
-            //TODO: appropriate separator?
-            text+= (s + "; ");
+        if(contents!=null) {
+            for (String s : contents) {
+                //TODO: appropriate separator?
+                text += (s + "; ");
+            }
         }
         this.textField.setText(text);
         this.add(textField,1,1);

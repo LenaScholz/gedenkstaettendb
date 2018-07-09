@@ -19,7 +19,7 @@ public class BooleanQuerySection extends QuerySection {
         if(contents.length>0 && contents[0]!=null){
             this.checkBox.setSelected(Boolean.valueOf(contents[0]));
         }
-        this.add(this.checkBox,1,1);
+        this.add(this.checkBox,2,1);
     }
 
     @Override
