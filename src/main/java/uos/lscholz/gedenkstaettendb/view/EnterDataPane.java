@@ -1,9 +1,6 @@
 package uos.lscholz.gedenkstaettendb.view;
 
-import javafx.scene.control.Hyperlink;
-import javafx.scene.control.Label;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.control.Separator;
+import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 import uos.lscholz.gedenkstaettendb.model.SampleSource;
 import uos.lscholz.gedenkstaettendb.view.dataentrypanes.*;
@@ -24,6 +21,7 @@ public class EnterDataPane extends GridPane {
     private ScrollPane scrollPane;
     private GridPane gridPane;
     private List<DataPane> datapanes;
+    private Button submitButton;
 
     /**
      * TODO: adapt to actual source once DB is set up
@@ -39,6 +37,8 @@ public class EnterDataPane extends GridPane {
         this.datapanes = new LinkedList<DataPane>();
         this.scrollPane = new ScrollPane();
         this.gridPane = new GridPane();
+        this.submitButton = new Button("Daten absenden");
+        this.submitButton.setId("createButton");
         SampleSource source = new SampleSource();
         int i = 0; //Todo: do this prettier
         for(Map.Entry<String,String> entry : source.datatypes.entrySet()){
@@ -57,6 +57,7 @@ public class EnterDataPane extends GridPane {
         this.add(this.sourceNameLabel,2,1);
         this.add(this.changeSourceLink,3,1);
         this.add(this.scrollPane,1,2,3,1);
+        this.add(this.submitButton,1,3,2,1);
 
     }
 

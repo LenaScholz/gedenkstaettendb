@@ -1,5 +1,6 @@
 package uos.lscholz.gedenkstaettendb.view;
 
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.GridPane;
@@ -16,13 +17,15 @@ public class QueryPane extends GridPane {
     private GridPane gridPane;
     private AddButton addButton;
     private LinkedList<QueryGroupPane> queryGroups;
+    private Button sendQueryButton;
 
     public QueryPane(){
         this.descriptionlabel = new Label("Stellen Sie eine Abfrage");
         this.scrollPane = new ScrollPane();
         this.gridPane = new GridPane();
-
         this.addButton = new AddButton("Weiteres Abfragefeld hinzufügen");
+        this.sendQueryButton = new Button("Abfrage stellen");
+        this.sendQueryButton.setId("createButton");
         this.queryGroups = new LinkedList<QueryGroupPane>();
 
         //TODO actual functionality
@@ -34,6 +37,7 @@ public class QueryPane extends GridPane {
         this.add(descriptionlabel,1,1);
         this.add(scrollPane,1,2);
         this.add(addButton,1,3);
+        this.add(sendQueryButton,1,4);
 
 
 
