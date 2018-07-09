@@ -1,4 +1,4 @@
-package uos.lscholz.gedenkstaettendb.view;
+package uos.lscholz.gedenkstaettendb.controller;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -7,10 +7,12 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import uos.lscholz.gedenkstaettendb.view.EnterDataPane;
+import uos.lscholz.gedenkstaettendb.view.WrappingPane;
 
 import java.io.IOException;
 
-public class MainView extends Application {
+public class Main extends Application {
 
     public static void main(String[] args) {
         launch(args);
@@ -20,14 +22,14 @@ public class MainView extends Application {
     public void start(Stage primaryStage) throws IOException {
 
         WrappingPane root = new WrappingPane();
-        /**CreateNewSourcePane createSourcePane = new CreateNewSourcePane();
-        root.addCenterLayer(createSourcePane);**/
-        /**SelectDataEntryActionPane selectDataEntryActionPane = new SelectDataEntryActionPane();
-        root.addCenterLayer(selectDataEntryActionPane);**/
-        /**EnterDataPane enterDataPane = new EnterDataPane();
-        root.addCenterLayer(enterDataPane);**/
-        QueryPane queryPane = new QueryPane();
-        root.addCenterLayer(queryPane);
+//        CreateNewSourcePane createSourcePane = new CreateNewSourcePane();
+//        root.addCenterLayer(createSourcePane);
+//        SelectDataEntryActionPane selectDataEntryActionPane = new SelectDataEntryActionPane();
+//        root.addCenterLayer(selectDataEntryActionPane);
+        EnterDataPane enterDataPane = new EnterDataPane();
+        root.addCenterLayer(enterDataPane);
+//        QueryPane queryPane = new QueryPane();
+//        root.addCenterLayer(queryPane);
         Scene scene = new Scene(root);
         scene.getStylesheets().add("/view/Stylesheet.css");
 
