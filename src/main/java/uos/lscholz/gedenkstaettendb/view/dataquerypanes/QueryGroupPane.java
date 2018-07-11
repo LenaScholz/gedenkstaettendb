@@ -2,6 +2,8 @@ package uos.lscholz.gedenkstaettendb.view.dataquerypanes;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Separator;
 import javafx.scene.layout.GridPane;
@@ -25,6 +27,23 @@ public class QueryGroupPane extends GridPane{
         this.querySection = QuerySectionFactory.createQuerySection("TEXT");
         this.separator = new Separator();
         this.separator.setId("separator");
+
+        /**this.comboBox.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                String type;
+                switch (comboBox.getSelectionModel().getSelectedIndex()){
+                    case 1: type = "TEXT"; break;
+                    case 2: type = "DATE"; break;
+                    case 3: type = "INT"; break;
+                    case 4: type = "FLOAT"; break;
+                    case 5: type = "BOOLEAN";break;
+                    default:throw new RuntimeException("illegal choice");
+                }
+                querySection = QuerySectionFactory.createQuerySection(type);
+                add(querySection,2,2);
+
+            }});**/
 
         this.add(deleteButton,1,1);
         this.add(comboBox,2,1);

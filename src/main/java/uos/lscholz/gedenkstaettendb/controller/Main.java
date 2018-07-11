@@ -10,6 +10,8 @@ import javafx.stage.Stage;
 import uos.lscholz.gedenkstaettendb.view.EnterDataPane;
 import uos.lscholz.gedenkstaettendb.view.WrappingPane;
 import uos.lscholz.gedenkstaettendb.view.QueryPane;
+import uos.lscholz.gedenkstaettendb.view.CreateNewSourcePane;
+import uos.lscholz.gedenkstaettendb.view.EnterDataPane;
 
 import java.io.IOException;
 
