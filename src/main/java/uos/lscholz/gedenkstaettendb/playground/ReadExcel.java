@@ -28,7 +28,6 @@ public class ReadExcel {
                 if(row != null) {
                     rowsVisited++;
                     for (Cell cell : row) {
-                        System.out.print(cell + " ");
                     }
                     if (row.getLastCellNum() > nrHeaderColumns) {
                         return false;
@@ -41,7 +40,8 @@ public class ReadExcel {
 
 
     public static void main(String [] args){
-        String filepath = "/home/lscholz/Dokumente/nonexistent/UkraineGekuerzt.xlsx";
+//        String filepath = "/home/lscholz/Dokumente/nonexistent/UkraineGekuerzt.xlsx";
+        String filepath = "/home/lena/Bachelorarbeit/Dateien_Augustaschacht/UkraineGekuerzt.xlsx";
         try (FileInputStream inputStream = new FileInputStream(filepath)) {
             Workbook workbook = new XSSFWorkbook(inputStream);
             if(!checkWorkbookFormat(workbook)){
