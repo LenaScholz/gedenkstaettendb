@@ -1,5 +1,6 @@
 package uos.lscholz.gedenkstaettendb.view;
 
+import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 import uos.lscholz.gedenkstaettendb.view.eventHandlers.AddSectionHandler;
@@ -10,7 +11,7 @@ import java.util.List;
 /**
  * Interface for creating a new source
  */
-public class CreateNewSourcePane extends GridPane implements AddableSection{
+public class CreateNewSourcePane extends GridPane implements HasSections {
 
     private Label nameOfSourceLabel;
     private TextField nameOfSource;
@@ -83,5 +84,10 @@ public class CreateNewSourcePane extends GridPane implements AddableSection{
         /**newDGP.prefWidthProperty().bind(this.datafieldsGridPane.widthProperty());
         newDGP.prefHeightProperty().bind(this.datafieldsGridPane.heightProperty());**/
 
+    }
+
+    @Override
+    public void removeSection(Node node) {
+        this.datafieldsGridPane.getChildren().remove(node);
     }
 }

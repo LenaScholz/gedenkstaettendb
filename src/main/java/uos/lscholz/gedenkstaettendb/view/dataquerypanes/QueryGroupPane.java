@@ -9,8 +9,11 @@ import javafx.scene.control.Separator;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import uos.lscholz.gedenkstaettendb.view.DeleteButton;
+import uos.lscholz.gedenkstaettendb.view.HasSections;
+import uos.lscholz.gedenkstaettendb.view.RemovableSection;
+import uos.lscholz.gedenkstaettendb.view.eventHandlers.RemoveSectionHandler;
 
-public class QueryGroupPane extends GridPane{
+public class QueryGroupPane extends GridPane implements RemovableSection {
 
     private DeleteButton deleteButton;
     private ComboBox<String> comboBox;
@@ -32,12 +35,23 @@ public class QueryGroupPane extends GridPane{
         this.separator.setId("separator");
 
         this.comboBox.setOnAction(new SelectionHandler());
+        //TODO make this work...
+        //this.deleteButton.setOnAction(new RemoveSectionHandler(this));
 
         this.add(deleteButton,1,1);
         this.add(comboBox,2,1);
         this.add(querySection,2,2);
         this.add(separator,1,3,2,1);
 
+    }
+
+    @Override
+    public void removeSection() {
+        if(this.getParent() instanceof HasSections){
+            ((HasSections) this.getParent()).removeSection(this);
+        }else{
+            throw new RuntimeException("Section called from Parent that does not have sections");
+        }
     }
 
     private class SelectionHandler implements EventHandler<ActionEvent>{

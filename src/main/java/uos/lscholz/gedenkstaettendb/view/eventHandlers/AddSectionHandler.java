@@ -2,18 +2,18 @@ package uos.lscholz.gedenkstaettendb.view.eventHandlers;
 
 import javafx.event.Event;
 import javafx.event.EventHandler;
-import uos.lscholz.gedenkstaettendb.view.AddableSection;
+import uos.lscholz.gedenkstaettendb.view.HasSections;
 
 public class AddSectionHandler implements EventHandler {
 
-    private AddableSection object;
+    private HasSections section;
 
-    public AddSectionHandler(AddableSection object){
-        this.object = object;
+    public AddSectionHandler(HasSections section){
+        this.section = section;
     }
 
     @Override
     public void handle(Event event) {
-        object.addSection();
+        section.addSection();
     }
 }

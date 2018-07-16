@@ -25,7 +25,7 @@
           <archive>
             <manifest>
               <addClasspath>true</addClasspath>
-              <mainClass>uos.lscholz.gedenkstaettendb.playground.SQLPlayground</mainClass>
+              <mainClass>uos.lscholz.gedenkstaettendb.controller.Main</mainClass>
             </manifest>
           </archive>
         </configuration>

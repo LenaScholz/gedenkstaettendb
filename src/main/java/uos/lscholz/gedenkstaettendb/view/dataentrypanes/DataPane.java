@@ -4,6 +4,8 @@ import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 import uos.lscholz.gedenkstaettendb.view.AddButton;
 import uos.lscholz.gedenkstaettendb.view.DeleteButton;
+import uos.lscholz.gedenkstaettendb.view.HasSections;
+import uos.lscholz.gedenkstaettendb.view.RemovableSection;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -13,7 +15,7 @@ import java.util.List;
  * Group of Labels and data inserts representing a datafield
  * to be used when the user is inserting or editing the data of an entry in the DB
  */
-public abstract class DataPane extends GridPane{
+public abstract class DataPane extends GridPane implements RemovableSection {
 
     private String type;
     private Label label;
@@ -58,6 +60,16 @@ public abstract class DataPane extends GridPane{
 
     public String getType(){
         return this.type;
+    }
+
+
+    //TODO wrong spot for this, split this class to subsections!
+    public void removeSection() {
+        if(this.getParent() instanceof HasSections){
+            ((HasSections) this.getParent()).removeSection(this);
+        }else{
+            throw new RuntimeException("Section called from Parent that does not have sections");
+        }
     }
 
     protected abstract Control newContentControl(String content);

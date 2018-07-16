@@ -1,7 +1,6 @@
 package uos.lscholz.gedenkstaettendb.view;
 
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
@@ -11,7 +10,7 @@ import uos.lscholz.gedenkstaettendb.view.eventHandlers.AddSectionHandler;
 
 import java.util.LinkedList;
 
-public class QueryPane extends GridPane implements AddableSection {
+public class QueryPane extends GridPane implements HasSections {
 
     private Label descriptionlabel;
     private ScrollPane scrollPane;
@@ -49,6 +48,11 @@ public class QueryPane extends GridPane implements AddableSection {
         this.queryGroups.add(groupPane);
         this.gridPane.add(groupPane,1,this.queryGroups.size()+1);
 
+    }
+
+    @Override
+    public void removeSection(Node node) {
+        this.gridPane.getChildren().remove(node);
     }
 
 }
