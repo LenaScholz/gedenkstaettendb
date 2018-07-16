@@ -11,7 +11,7 @@ public class DateQuerySection extends QuerySection {
     private DatePicker secondDatePicker;
     
     public DateQuerySection (){
-        this("01.01.1900");
+        this("1900-01-01");
     }
     
     public DateQuerySection (String ... contents){

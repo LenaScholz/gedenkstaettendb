@@ -15,11 +15,18 @@ public class FloatQuerySection extends QuerySection {
     public FloatQuerySection(String ... contents){
         this.lowerFloat = new TextField();
         this.upperFloat = new TextField();
-        switch (contents.length){
-            case 0: break;
-            case 2: this.upperFloat.setText(contents[1]);
-            case 1: this.lowerFloat.setText(contents[0]);break;
-            default: throw new RuntimeException("Too many arguments in contents");
+        if(contents!= null) {
+            switch (contents.length) {
+                case 0:
+                    break;
+                case 2:
+                    this.upperFloat.setText(contents[1]);
+                case 1:
+                    this.lowerFloat.setText(contents[0]);
+                    break;
+                default:
+                    throw new RuntimeException("Too many arguments in contents");
+            }
         }
         this.add(lowerFloat,1,1);
         this.add(upperFloat,2,1);

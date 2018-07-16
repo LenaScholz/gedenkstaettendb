@@ -2,6 +2,7 @@ package uos.lscholz.gedenkstaettendb.view;
 
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
+import uos.lscholz.gedenkstaettendb.view.eventHandlers.AddSectionHandler;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -9,7 +10,7 @@ import java.util.List;
 /**
  * Interface for creating a new source
  */
-public class CreateNewSourcePane extends GridPane {
+public class CreateNewSourcePane extends GridPane implements AddableSection{
 
     private Label nameOfSourceLabel;
     private TextField nameOfSource;
@@ -64,10 +65,8 @@ public class CreateNewSourcePane extends GridPane {
 
 
         this.add(scrollPane,1,8,2,1);
-        //TODO: dynamic generation and storage in datafields-list
-        for(int i=0;i<5;i++) {
-            this.addDatafieldGroupPane();
-        }
+
+        this.addDatafieldButton.setOnAction(new AddSectionHandler(this));
 
         this.add(addDatafieldButton,1,9);
         this.add(createSourceButton,1,10,2,1);
@@ -77,7 +76,7 @@ public class CreateNewSourcePane extends GridPane {
     /**
      * add one more DatafieldGroup to this view
      */
-    public void addDatafieldGroupPane (){
+    public void addSection(){
         DatafieldGroupPane newDGP = new DatafieldGroupPane("Datenfeld "+(datafields.size()+1));
         datafields.add(newDGP);
         this.datafieldsGridPane.add(newDGP,1,datafields.size(),2,1);
