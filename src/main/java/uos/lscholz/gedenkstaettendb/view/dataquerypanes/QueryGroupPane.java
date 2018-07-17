@@ -17,7 +17,6 @@ public class QueryGroupPane extends GridPane implements RemovableSection {
 
     private DeleteButton deleteButton;
     private ComboBox<String> comboBox;
-    private HBox hBox;
     private QuerySection querySection;
     private Separator separator;
 
@@ -35,8 +34,7 @@ public class QueryGroupPane extends GridPane implements RemovableSection {
         this.separator.setId("separator");
 
         this.comboBox.setOnAction(new SelectionHandler());
-        //TODO make this work...
-        //this.deleteButton.setOnAction(new RemoveSectionHandler(this));
+        this.deleteButton.setOnAction(new RemoveSectionHandler(this));
 
         this.add(deleteButton,1,1);
         this.add(comboBox,2,1);
@@ -47,8 +45,9 @@ public class QueryGroupPane extends GridPane implements RemovableSection {
 
     @Override
     public void removeSection() {
-        if(this.getParent() instanceof HasSections){
-            ((HasSections) this.getParent()).removeSection(this);
+        //TODO: make prettyer if possible
+        if(this.getParent().getParent().getParent().getParent().getParent() instanceof HasSections){
+            ((HasSections) this.getParent().getParent().getParent().getParent().getParent()).removeSection(this);
         }else{
             throw new RuntimeException("Section called from Parent that does not have sections");
         }
