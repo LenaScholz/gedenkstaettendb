@@ -6,14 +6,14 @@ import javafx.scene.control.DatePicker;
 import java.time.LocalDate;
 import java.time.format.DateTimeParseException;
 
-public class DateDataPane extends DataPane {
+public class DateDataSection extends DataEntrySection {
     /**
-     * @param label    Name of the datafield
-     * @param type     Type of the data stored in the datafield
-     * @param contents Array of the data already stored for that datafield
+     *
+     * @param pagination
+     * @param content
      */
-    public DateDataPane(String label, String type, String[] contents) {
-        super(label, type, contents);
+    public DateDataSection(boolean pagination, String content) {
+        super(pagination, content);
     }
 
     @Override

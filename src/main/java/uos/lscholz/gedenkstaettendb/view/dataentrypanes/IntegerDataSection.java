@@ -3,14 +3,14 @@ package uos.lscholz.gedenkstaettendb.view.dataentrypanes;
 import javafx.scene.control.Control;
 import javafx.scene.control.TextField;
 
-public class FloatDataPane extends DataPane{
+public class IntegerDataSection extends DataEntrySection{
     /**
-     * @param label    Name of the datafield
-     * @param type     Type of the data stored in the datafield
-     * @param contents Array of the data already stored for that datafield
+     *
+     * @param pagination
+     * @param content
      */
-    public FloatDataPane(String label, String type, String[] contents) {
-        super(label, type, contents);
+    public IntegerDataSection(boolean pagination, String content) {
+        super(pagination, content);
     }
 
     @Override

@@ -3,14 +3,14 @@ package uos.lscholz.gedenkstaettendb.view.dataentrypanes;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Control;
 
-public class BooleanDataPane extends DataPane{
+public class BooleanDataSection extends DataEntrySection{
     /**
-     * @param label    Name of the datafield
-     * @param type     Type of the data stored in the datafield
-     * @param contents Array of the data already stored for that datafield
+     *
+     * @param pagination
+     * @param content
      */
-    public BooleanDataPane(String label, String type, String[] contents) {
-        super(label, type, contents);
+    public BooleanDataSection(boolean pagination, String content) {
+        super(pagination,content);
     }
 
     @Override

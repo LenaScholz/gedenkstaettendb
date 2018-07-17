@@ -42,7 +42,7 @@ public class EnterDataPane extends GridPane {
         SampleSource source = new SampleSource();
         int i = 0; //Todo: do this prettier
         for(Map.Entry<String,String> entry : source.datatypes.entrySet()){
-            DataPane dataPane = DataPaneFactory.createDataPane(entry.getKey(),entry.getValue(),source.contents.get(entry.getKey()));
+            DataPane dataPane = new DataPane(entry.getKey(),entry.getValue(),source.contents.get(entry.getKey()), true);
             this.datapanes.add(dataPane);
             this.gridPane.add(dataPane,1,i++);
             Separator separator = new Separator();
