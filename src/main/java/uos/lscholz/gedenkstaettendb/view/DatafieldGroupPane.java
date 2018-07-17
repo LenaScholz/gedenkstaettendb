@@ -6,6 +6,7 @@ import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Priority;
+import uos.lscholz.gedenkstaettendb.view.eventHandlers.RemoveSectionHandler;
 
 import java.util.Iterator;
 
@@ -13,7 +14,7 @@ import java.util.Iterator;
  * Group of Labels and data inserts to specify the name and structure of a Datafield (to be used when
  * the user needs to create a new source
  */
-public class DatafieldGroupPane extends GridPane{
+public class DatafieldGroupPane extends GridPane implements RemovableSection{
 
     private Label datafieldLabel;
     private CheckBox pagination;
@@ -44,6 +45,7 @@ public class DatafieldGroupPane extends GridPane{
         this.identifierLabel = new Label("Bezeichner");
         this.identifier = new TextField();
         this.datafieldDelete = new DeleteButton();
+        this.datafieldDelete.setOnAction(new RemoveSectionHandler(this));
         this.separator = new Separator();
         this.separator.setId("separator");
 
@@ -64,4 +66,13 @@ public class DatafieldGroupPane extends GridPane{
         }
     }
 
+    @Override
+    public void removeSection() {
+        //TODO: make prettyer if possible
+        if(this.getParent().getParent().getParent().getParent().getParent() instanceof HasSections){
+            ((HasSections) this.getParent().getParent().getParent().getParent().getParent()).removeSection(this);
+        }else{
+            throw new RuntimeException("Section called from Parent that does not have sections");
+        }
+    }
 }

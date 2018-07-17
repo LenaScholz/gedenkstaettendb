@@ -50,7 +50,7 @@ public class CreateNewSourcePane extends GridPane implements HasSections {
         this.scrollPane = new ScrollPane();
         this.datafieldsGridPane = new GridPane();
 
-        this.addDatafieldButton = new AddButton("Weiteres Datenfeld hinzufügen");
+        this.addDatafieldButton = new AddButton("Datenfeld hinzufügen");
 
         this.add(nameOfSourceLabel,1,1,2,1);
         this.add(nameOfSource,1,2,2,1);
@@ -78,12 +78,9 @@ public class CreateNewSourcePane extends GridPane implements HasSections {
      * add one more DatafieldGroup to this view
      */
     public void addSection(){
-        DatafieldGroupPane newDGP = new DatafieldGroupPane("Datenfeld "+(datafields.size()+1));
+        DatafieldGroupPane newDGP = new DatafieldGroupPane("Datenfeld");
         datafields.add(newDGP);
         this.datafieldsGridPane.add(newDGP,1,datafields.size(),2,1);
-        /**newDGP.prefWidthProperty().bind(this.datafieldsGridPane.widthProperty());
-        newDGP.prefHeightProperty().bind(this.datafieldsGridPane.heightProperty());**/
-
     }
 
     @Override
