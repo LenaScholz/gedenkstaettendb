@@ -13,12 +13,11 @@ public class SQLPlayground {
                 System.out.println("A new database has been created.");
             }
         }catch (Exception e){
-            System.out.print(e.getStackTrace());
+            System.out.println(e.getMessage());
         }
     }
 
     public static void main(String[] args) {
-        System.out.println("Stuff");
         createDB();
     }
 }
