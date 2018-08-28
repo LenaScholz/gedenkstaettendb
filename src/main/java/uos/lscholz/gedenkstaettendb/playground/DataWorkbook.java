@@ -1,6 +1,7 @@
 package uos.lscholz.gedenkstaettendb.playground;
 
 import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
@@ -13,7 +14,7 @@ import java.util.ArrayList;
 public class DataWorkbook extends XSSFWorkbook {
 
     private ArrayList<String> headerRow;
-    private ArrayList<DataType> types;
+    private ArrayList<DataType> dataTypes;
 
 
     public DataWorkbook (InputStream inputStream) throws IOException {
@@ -49,7 +50,13 @@ public class DataWorkbook extends XSSFWorkbook {
     }
 
     private void setTypes(){
-
+        this.dataTypes = new ArrayList<>(this.headerRow.size());
+        Sheet sheet = this.getSheetAt(0);
+        Row row = sheet.getRow(sheet.getFirstRowNum()+1);
+        for(int i =0; i<dataTypes.size();i++){
+            Cell cell = row.getCell(i);
+            //TODO cell type?!
+        }
     }
 
     /**
