@@ -4,6 +4,9 @@ import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.regex.Matcher;
 
 public class ReadExcel {
 
@@ -18,7 +21,6 @@ public class ReadExcel {
             int firstRowNum = sheet.getFirstRowNum();
             int nrHeaderColumns = sheet.getRow(firstRowNum).getLastCellNum();
             if(nrHeaderColumns != sheet.getRow(firstRowNum).getPhysicalNumberOfCells()+1){
-                System.out.println("Inadmissable workbook 1");
                 return false;
             }
             int numOfRows = sheet.getPhysicalNumberOfRows();
@@ -39,13 +41,40 @@ public class ReadExcel {
     }
 
 
+    public static Workbook openWorkbook(String filepath){
+        Workbook workbook;
+        try (FileInputStream inputStream = new FileInputStream(filepath)){
+
+            if(filepath.matches(".*\\.xlsx")) {
+                workbook = new XSSFWorkbook(inputStream);
+                if(!checkWorkbookFormat(workbook)){
+                    throw new RuntimeException("Inadmissable Workbook");
+                }
+            }else {
+                throw new RuntimeException("Given Filepath does not match any supported file format");
+            }
+            return workbook;
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+
     public static void main(String [] args){
 //        String filepath = "/home/lscholz/Dokumente/nonexistent/UkraineGekuerzt.xlsx";
         String filepath = "/home/lena/Bachelorarbeit/Dateien_Augustaschacht/UkraineGekuerzt.xlsx";
-        try (FileInputStream inputStream = new FileInputStream(filepath)) {
-            Workbook workbook = new XSSFWorkbook(inputStream);
-            if(!checkWorkbookFormat(workbook)){
-                System.out.println("Inadmissable workbook");
+        Workbook workbook = null;
+        try (FileInputStream inputStream = new FileInputStream(filepath)){
+            workbook = new DataWorkbook(inputStream);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        if(workbook == null){
                 System.exit(0);
             }
             int noOfSheets = workbook.getNumberOfSheets();
@@ -60,9 +89,6 @@ public class ReadExcel {
                     }
                 }
             }
-        }catch (Exception e){
-            e.printStackTrace();
-        }
 
     }
 }
