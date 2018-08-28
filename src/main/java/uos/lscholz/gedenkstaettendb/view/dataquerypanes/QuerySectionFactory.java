@@ -1,26 +1,26 @@
 package uos.lscholz.gedenkstaettendb.view.dataquerypanes;
 
+import uos.lscholz.gedenkstaettendb.model.DataType;
+
 public class QuerySectionFactory {
 
     public static QuerySection createQuerySection(String type) {
-        switch (type) {
-            case "TEXT":
+
+        DataType dataType = DataType.convertToType(type);
+        switch (dataType){
+            case TEXT:
                 return new TextQuerySection();
-            case "DATE":
+            case DATE:
                 return new DateQuerySection();
-            case "FLOAT":
-            case "DOUBLE":
-            case "DECIMAL":
+            case FLOAT:
                 return new FloatQuerySection();
-            case "INTEGER":
-            case "INT":
-            case "BIGINT":
+            case INTEGER:
                 return new IntegerQuerySection();
-            case "BOOLEAN":
-            case "BOOL":
+            case BOOLEAN:
                 return new BooleanQuerySection();
             default:
-                throw new RuntimeException("Typ wird nicht unterstützt");
+                throw new RuntimeException("Type is not supported");
         }
+
     }
 }

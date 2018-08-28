@@ -1,5 +1,7 @@
 package uos.lscholz.gedenkstaettendb.view.dataentrypanes;
 
+import uos.lscholz.gedenkstaettendb.model.DataType;
+
 public class DataSectionFactory {
 
     /**
@@ -10,24 +12,21 @@ public class DataSectionFactory {
      * @return
      */
     public static DataEntrySection createDataSection(String type, boolean pagination, String content) {
-        switch (type) {
-            case "TEXT":
+
+        DataType dataType = DataType.convertToType(type);
+        switch (dataType){
+            case TEXT:
                 return new TextDataPane(pagination,content);
-            case "DATE":
+            case DATE:
                 return new DateDataSection(pagination,content);
-            case "FLOAT":
-            case "DOUBLE":
-            case "DECIMAL":
+            case FLOAT:
                 return new FloatDataSection(pagination,content);
-            case "INTEGER":
-            case "INT":
-            case "BIGINT":
+            case INTEGER:
                 return new IntegerDataSection(pagination,content);
-            case "BOOLEAN":
-            case "BOOL":
+            case BOOLEAN:
                 return new BooleanDataSection(pagination,content);
             default:
-                throw new RuntimeException("Typ wird nicht unterstützt");
+                throw new RuntimeException("Type is not supported");
         }
     }
 }

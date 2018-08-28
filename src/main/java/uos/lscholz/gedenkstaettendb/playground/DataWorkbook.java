@@ -4,6 +4,7 @@ import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import uos.lscholz.gedenkstaettendb.model.DataType;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -12,6 +13,7 @@ import java.util.ArrayList;
 public class DataWorkbook extends XSSFWorkbook {
 
     private ArrayList<String> headerRow;
+    private ArrayList<DataType> types;
 
 
     public DataWorkbook (InputStream inputStream) throws IOException {
@@ -19,6 +21,7 @@ public class DataWorkbook extends XSSFWorkbook {
         if(!checkWorkbookFormat()){
             throw new RuntimeException("Given input is not formatted to be a valid DataWorkbook");
         }
+        this.setHeaderRow();
 
     }
 
@@ -37,10 +40,15 @@ public class DataWorkbook extends XSSFWorkbook {
                     for(int j= 0; j<noOfNull;j++){
                         headerRow.add("");
                     }
+                    noOfNull = 0;
                 }
                 headerRow.add(cell.getStringCellValue());
             }
         }
+
+    }
+
+    private void setTypes(){
 
     }
 
