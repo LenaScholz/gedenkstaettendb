@@ -1,5 +1,7 @@
 package uos.lscholz.gedenkstaettendb.model;
 
+import org.apache.poi.ss.usermodel.CellType;
+
 public enum DataType {
     TEXT, DATE, FLOAT, INTEGER, BOOLEAN;
 
@@ -24,6 +26,17 @@ public enum DataType {
             default:
                 throw new RuntimeException("String not convertible to type");
 
+        }
+    }
+
+    public static DataType convertToType(CellType c){
+        switch(c){
+            case BOOLEAN:
+                return DataType.BOOLEAN;
+            case NUMERIC:
+                return DataType.FLOAT;
+            default:
+                return DataType.TEXT;
         }
     }
 }
