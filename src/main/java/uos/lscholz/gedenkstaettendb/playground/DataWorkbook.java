@@ -23,9 +23,21 @@ public class DataWorkbook extends XSSFWorkbook {
             throw new RuntimeException("Given input is not formatted to be a valid DataWorkbook");
         }
         this.setHeaderRow();
+        this.setTypes();
 
     }
 
+    public String getHeader(int i){
+        return headerRow.get(i);
+    }
+
+    public DataType getType(int i){
+        return dataTypes.get(i);
+    }
+
+    /**
+     *
+     */
     private void setHeaderRow(){
         this.headerRow = new ArrayList<String>();
         Sheet sheet = this.getSheetAt(0);
@@ -49,13 +61,21 @@ public class DataWorkbook extends XSSFWorkbook {
 
     }
 
+    /**
+     *
+     */
     private void setTypes(){
         this.dataTypes = new ArrayList<>(this.headerRow.size());
         Sheet sheet = this.getSheetAt(0);
         Row row = sheet.getRow(sheet.getFirstRowNum()+1);
         for(int i =0; i<dataTypes.size();i++){
             Cell cell = row.getCell(i);
-            //TODO cell type?!
+            // getCellTypeEnum is listed as deprecated by API
+            // getCellType is marked as deprecated by IDE
+            // #justWhy
+            CellType cellType = cell.getCellTypeEnum();
+            dataTypes.add(DataType.convertToType(cellType));
+
         }
     }
 
@@ -72,6 +92,21 @@ public class DataWorkbook extends XSSFWorkbook {
             throw new RuntimeException("Content may not be null");
         }
         headerRow.set(i, content);
+    }
+
+    /**
+     *
+     * @param i index of column to change the data type of, zero-based
+     * @param type type to which to change, not null
+     */
+    public void setType(int i, DataType type){
+        if(i<0 || i>dataTypes.size()){
+            throw new RuntimeException("Given value of i is not within bounds");
+        }
+        if(type == null){
+            throw new RuntimeException("Type may not be null");
+        }
+        dataTypes.set(i,type);
     }
 
 
